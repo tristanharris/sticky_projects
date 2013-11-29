@@ -1,4 +1,4 @@
-module StickyProjectsHelper
+module StickyProjects::ApplicationHelperPatch
 
 	#Override routing functions
 
