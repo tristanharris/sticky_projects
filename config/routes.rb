@@ -1,6 +1,6 @@
 resources :projects do
 
-  resources :issues , :as => :issue do
+  resources :issues, :constraints => { id: /\d*/ } do
     collection do
       match 'bulk_edit', :via => [:get, :post]
       post 'bulk_update'
