@@ -10,7 +10,7 @@ module StickyProjects::SearchControllerPatch
 		index_without_sticky_project
 		# override quick jump to an issue
     if @question.match(/^#?(\d+)$/) && (issue = Issue.visible.find_by_id($1.to_i))
-			self.response_body = nil
+			self.response_body = nil # reset this so we can re-call redirect_to
       args = {:controller => "issues", :action => "show", :id => issue}
       args[:project_id] = @project if @project && issue.project.ancestors.include?(@project)
       redirect_to args
