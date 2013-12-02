@@ -1,4 +1,10 @@
-module StickyProjects::ApplicationHelperPatch
+module StickyProjects::RoutingPatch
+
+  def self.included(base)
+    base.send(:helper_method, :issue_path)
+    base.send(:helper_method, :issues_path)
+    base.send(:helper_method, :new_issue_time_entry_path)
+  end
 
 	#Override routing functions
 

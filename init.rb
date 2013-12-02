@@ -1,5 +1,6 @@
 Rails.configuration.to_prepare do
-  ApplicationHelper.send(:include, StickyProjects::ApplicationHelperPatch) unless ApplicationHelper.included_modules.include?(StickyProjects::ApplicationHelperPatch)
+  ApplicationController.send(:include, StickyProjects::RoutingPatch) unless ApplicationController.included_modules.include?(StickyProjects::RoutingPatch)
+
   IssuesController.send(:include, StickyProjects::IssuesControllerPatch) unless IssuesController.included_modules.include?(StickyProjects::IssuesControllerPatch)
   SearchController.send(:include, StickyProjects::SearchControllerPatch) unless SearchController.included_modules.include?(StickyProjects::SearchControllerPatch)
 end
